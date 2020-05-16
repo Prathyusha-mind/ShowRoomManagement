@@ -1,0 +1,164 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html  lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Paymentcancel</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Changing Bootstrap 4 Breadcrumb Separator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+        /* Style to change separator  */
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: ">";
+        }
+    </style>
+
+
+
+
+
+
+
+    <style>
+
+        body {
+            background-color: #008000;
+            color: black;
+        }
+
+        @@media screen and (max-width: 1200px) {
+            body {
+                background-color: gold;
+                color: silver;
+            }
+        }
+
+        @@media screen and (max-width: 1100px) {
+            body {
+                background-color: black;
+                color: white;
+            }
+        }
+
+        @@media screen and (max-width: 900px) {
+            body {
+                background-color: #008000;
+                color: black;
+            }
+        }
+
+
+        @@media screen and (max-width: 800px) {
+            body {
+                background-color: Yellow;
+                color: darkseagreen;
+            }
+        }
+
+        @@media screen and (max-width: 750px) {
+            body {
+                background-color: moccasin;
+                color: brown;
+            }
+        }
+    </style>
+    @*<style>
+            h3::before {
+                content: url("/Images/activa-5g.jpg");
+            }
+
+            h3::after {
+                content: url("/Images/backround.jpg");
+            }
+        </style>*@
+    <style>
+        h3.article::first-letter {
+            color: #00ff00;
+            font-size: xx-large;
+        }
+    </style>
+    <style>
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: coral;
+            text-decoration: wavy;
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myImg').on({
+                mouseenter: function () {
+                    $(this).animate({
+                        'height': 400,
+                        'width': 400
+                    }, 3000);
+                },
+                mouseout: function () {
+                    $(this).animate({
+                        'height': 100,
+                        'width': 100
+                    }, 3000);
+                }
+            });
+
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#div1').blur('<div style="background-color:yellow"> New div </div>');
+
+        });
+    </script>
+</head>
+<body>
+
+
+    <div class="bs-example">
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">EMICalculate</a></li>
+                <li class="breadcrumb-item"><a href="#">PurchaseByEMI</a></li>
+                <li class="breadcrumb-item active">Paymentcancel</li>
+            </ol>
+        </nav>
+    </div>
+    <center>
+        <div id="div1"><h3 class="article">“Thank You for visiting….See You next time”!!!!!!!!!!!!!!!!!</h3></div>
+
+        <img src="~/Images/thankyou.jpg" height="100" width="100" id="myImg" />
+        <p>  <span class="glyphicon glyphicon-hand-right"></span> <a href="https://www.google.com" target="_blank">www.Google.com</a><span class="glyphicon glyphicon-globe"></span></p>
+
+    </center>
+</body>
+</html>

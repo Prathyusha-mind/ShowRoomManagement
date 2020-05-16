@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewBag.Title = "UpdateBike";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<br />
+<h2 align="center">UpdateBike</h2>
+<html>
+<head>
+    @*<script>
+        function validatemyform() {
+            
+            var BikeName = document.getElementById("BikeName").value;
+            var BikePrice = document.getElementById("BikePrice").value;
+            var DiscBrakes = document.getElementById("DiscBrakes").value;
+            var Milage = document.getElementById("Milage").value;
+            var BikeCC = document.getElementById("BikeCC").value;
+
+
+            if (BikeName == "" || Milage == "" || BikePrice == "" || DiscBrakes == "" || BikeCC=="") {
+                alert("Please fill alll the fields");
+                return false;
+            }
+
+
+            if (BikeName[0].toUpperCase() != BikeName[0]) {
+                alert("BikeName cannot start with lower case");
+                return false;
+            }
+
+
+            var format = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (format.test(PlaceName)) {
+                alert("BikeName cannot Contain special character");
+                return false;
+            }
+            if (Milage < 15 || milage > 45) {
+                alert("Milage should be between 15 and 45");
+                return false;
+            }
+
+            if (!(DiscBrakes == 0 || DiscBrakes == 1 || DiscBrakes == 2 || DiscBrakes == 4)) {
+                alert("Disc Should be 0,1,2,4");
+                return false;
+            }
+            if (BikePrice < 25000) {
+                alert("price should be greater than 25000");
+                return false;
+            }
+            
+        }
+
+        
+    </script>*@
+</head>
+<body>
+    <div class="container">
+        <div class="form-inline" style=" color:white">
+            <center>
+                <form name="myform" action="UpdateBike" enctype="multipart/form-data" method="post" onsubmit="return validatemyform()">
+                    @*@using (Html.BeginForm("UpdateBike", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {*@
+                    <div class="form-group">
+                        <label for="BikeId">BikeId</label>
+                        <input type="number" class="form-control" id="BikeId" placeholder="BikeId" name="BikeId" value="@Model.BikeId" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="BikeName">BikeName</label>
+                        <input type="text" class="form-control" id="BikeName" placeholder="BikeName" name="BikeName" value="@Model.BikeName" />
+                    </div>
+                    <br />
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="BikePrice">BikePrice</label>
+                        <input type="number" class="form-control" id="BikePrice" placeholder="BikePrice" name="BikePrice" value="@Model.BikePrice" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="Milage">Milage</label>
+                        <input type="number" class="form-control" id="Milage" placeholder="Milage" name="Milage" value="@Model.Milage" @*min="15" max="45" required*@ />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group" >
+                        <label for="DiscBrakes">DiscBrakes</label>
+                        <select name="DiscBrakes" id="DiscBrakes" style="color:white">
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="4">Four</option>
+                        </select>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="BikeCC">BikeCC</label>
+                        <input type="number" class="form-control" name="BikeCC" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="ImageOfBike">ImageOfBike</label>
+                        <input type="file" class="form-control" name="File" id="file" required />
+                    </div>
+                    <br />
+                    <br />
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </center>
+        </div>
+    </div>
+    <script>
+        function validatemyform() {
+            //var x = document.forms["MyForm"]["BrandName"].value;
+            var BikeName = document.forms["myform"]["BikeName"].value;
+            var BikePrice = document.forms["myform"]["BikePrice"].value;
+            var DiscBrakes = document.forms["myform"]["DiscBrakes"].value;
+            var Milage = document.forms["myform"]["Milage"].value;
+            var BikeCC = document.forms["myform"]["BikeCC"].value;
+            //var file = document.getElementById("file").value;
+
+            if (BikeName == "" || Milage == "" || BikePrice == "" || DiscBrakes == "" || BikeCC == "") {
+                alert("Please fill all the fields");
+                return false;
+            }
+
+
+            //if (BikeName[0].touppercase() != BikeName[0])
+            //{
+            //    alert("bikename cannot start with lower case");
+            //    return false;
+            //}
+
+
+            var format = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (format.test(BikeName)) {
+                alert("Brand name cannot Contain special character");
+                return false;
+            }
+
+            if (BikePrice < 25000) {
+                alert("price should be greater than 25000");
+                return false;
+            }
+            if (!(DiscBrakes == 0 || DiscBrakes == 1 || DiscBrakes == 2 || DiscBrakes == 4)) {
+                alert("Disc Should be 0,1,2,4");
+                return false;
+            }
+            if (Milage < 15 || Milage > 45) {
+                alert("milage should be between 15 and 45");
+                return false;
+            }
+
+            if (BikeCC < 100 || BikeCC > 1000) {
+                alert("Bike CC should be between 100 and 1000");
+                return false;
+            }
+
+        }
+    </script>
+</body>
+</html>
+

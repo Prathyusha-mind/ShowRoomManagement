@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "GetBike";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<br />
+<br />
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div calss="Container" id="display">
+
+        @foreach (var item in Model)
+        {
+            var base64 = Convert.ToBase64String(item.BikeImages);
+            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+            <div class="column" style="padding:10px" >
+                <div class="col-sm-4" style="font-size:medium">
+                    <div class="card-deck">
+                        <div class="card">
+                            <div class="thumbnail">
+
+                                <img src="@imgsrc" class="card-img-top" alt="@item.BikeName" title="@item.BikeName" height="200" width="250" />
+                            </div>
+
+                            <div class="card-body" style="color:white">
+                                <h4 class="card-title">BikeName:&nbsp;@item.BikeName</h4>
+                              
+                                <p class="card-text">DiscBrakes:&nbsp;@item.DiscBrakes</p>
+                                <p class="card-text">Milage:&nbsp;@item.Milage</p>
+                                <p class="card-text">BikePrice:&nbsp;@item.BikePrice</p>
+                                <p class="card-text">BikeCC:&nbsp;@item.BikeCC</p>
+                                @Html.ActionLink("DeleteBike", "DeleteBike", new { BikeId = @item.BikeId }, new { @class = "btn btn-primary btn-large" })
+                                &nbsp;&nbsp;
+                                @Html.ActionLink("UpdateBike", "UpdateBike", new { BikeId = item.BikeId }, new { @class = "btn btn-primary btn-large" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        }
+        </div>
+</body>
+</html>
+

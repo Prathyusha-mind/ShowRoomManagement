@@ -1,0 +1,83 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "AddBrand";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<br />
+<br />
+<h3 align="center"style="color:white">@TempData["message"]</h3><br />
+<html>
+<head>
+    <style>
+        form {
+            /*width: 300px;
+                                                    height: 200px;*/
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2rem;
+        }
+
+        label {
+            width: 30%;
+        }
+
+        input {
+            background-color: wheat;
+            float: right;
+        }
+
+            input:focus {
+                background-color: grey;
+            }
+    </style>
+    <script>
+        function validatemyform() {
+            var Brandname = document.getElementById("Brandname").value;
+            if (Brandname[0].toUpperCase() != Brandname[0]) {
+                alert("Brand name cannot start with lower case");
+                return false;
+            }
+            if (/[0-9]/.test(Brandname)) {
+                alert("Brand name cannot contain numbers");
+                return false;
+            }
+            var format = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (format.test(Brandname)) {
+                alert("Brand name cannot Contain special character");
+                return false;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-inline" style="align-content:center">
+            <center>
+                <form name="myform" action="AddBrand" method="post" onsubmit="return validatemyform()">
+                    <div>
+                        <div class="form-group">
+                            <label for="Brandname" style="color:white">Brand Name</label>
+                            <input type="text" placeholder="add Brandname" class="form-control" id="Brandname" name="Brandname" required /><br /><br /><br /> <input style="align-content:center" type="submit" class="btn btn-info" value="submit" />
+                        </div>
+
+                    </div>
+                   
+
+                </form>
+            </center>
+        </div>
+    </div>
+    <br />
+    <br />
+</body>
+
+</html>
+<div align="center">
+    @Html.ActionLink("Back to Link", "GetBike", "Admin")
+</div>

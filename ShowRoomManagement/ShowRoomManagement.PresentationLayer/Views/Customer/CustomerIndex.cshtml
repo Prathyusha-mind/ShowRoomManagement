@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "CustomerIndex";
+    //Layout = "~/Views/Shared/CustomerPartialView.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+
+<html>
+<head>
+
+</head>
+<body>
+    <center>
+        <div class="container">
+            <div class="form-inline">
+                <form name="myform" action="CustomerChoice" enctype="multipart/form-data" method="post" onsubmit="return validatemyform()">
+
+
+                    <label for="BrandName"style="color:white">Brand Name</label>
+                    <Select id="BrandName" name="BrandName" class="form-control" required>
+                        <option value="">select</option>
+                        @foreach (var BrandName in Model)
+                        {
+                            <option value=@BrandName.BrandName>@BrandName.BrandName</option>
+                        }
+                    </Select>
+                    <br />
+                    <br />
+                    <br />
+
+
+                    <input type="Submit" value="save" class="btn btn-info" required />
+
+
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+    
+        <br />
+        <br />
+        @*@Html.ActionLink("AddCustomerDetails", "AddCustomer", "Customer")*@
+    </center>
+</body>
+</html>
+

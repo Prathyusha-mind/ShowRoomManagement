@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "AddBike";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h3 align="center"style="color:white">@TempData["message"]</h3><br />
+<html>
+<head>
+    <style>
+        form {
+            /*width: 300px;
+                                                    height: 200px;*/
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2rem;
+        }
+
+        label {
+            width: 30%;
+        }
+
+        input {
+            background-color: wheat;
+            float: right;
+        }
+
+            input:focus {
+                background-color: grey;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-inline" style="color:white">
+            <center>
+                <form name="myform" action="AddBike" enctype="multipart/form-data" method="post" onsubmit="return validatemyform()">
+
+
+
+                    <br />
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="BikeName">Bike Name</label>
+                        <input type="text" class="form-control" name="BikeName" id="BikeName" style="color:white" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="BikePrice">Price</label>
+                        <input type="number" class="form-control" name="BikePrice" id="BikePrice" style="color:white" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="DiscBrakes">DiscBrakes</label>
+                        <select name="DiscBrakes" id="DiscBrakes" style="color:black">
+                            <option value="0">Zero</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="4">Four</option>
+                        </select>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="Milage">Milage</label>
+                        <input type="number" class="form-control" name="Milage" id="Milage" style="color:white" @* min="15" max="45" required*@ />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="BikeCC">BikeCC</label>
+                        <input type="number" class="form-control" name="BikeCC" id="BikeCC" style="color:white" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-group">
+                        <label for="ImageOfBike">ImageOfBike</label>
+                        <input type="file" class="form-control" name="File" id="file" style="color:white" required />
+                    </div>
+                    <br />
+                    <br />
+                    <label for="BrandName">Brand Name</label><br /><br /> <Select id="BrandName" name="BrandName" class="form-control" style="color:black" required>
+
+                        <option value="">select</option>
+                        @foreach (var BrandName in Model)
+                        {
+                            <option value=@BrandName.BrandName>@BrandName.BrandName</option>
+                        }
+                    </Select> <br /><br />  <br /><br /><input type="submit" value="save" class="btn btn-info" />
+
+
+
+
+                </form>
+                <br />
+                <br />
+                @Html.ActionLink("Back to Link", "GetBike", "Admin")
+            </center>
+        </div>
+    </div>
+    <script>
+        function validatemyform() {
+            //var x = document.forms["MyForm"]["BrandName"].value;
+            var BikeName = document.forms["myform"]["BikeName"].value;
+            var BikePrice = document.forms["myform"]["BikePrice"].value;
+            var DiscBrakes = document.forms["myform"]["DiscBrakes"].value;
+            var Milage = document.forms["myform"]["Milage"].value;
+            var BikeCC = document.forms["myform"]["BikeCC"].value;
+            //var file = document.getElementById("file").value;
+
+            if (BikeName == "" || Milage == "" || BikePrice == "" || DiscBrakes == "" || BikeCC == "") {
+                alert("Please fill all the fields");
+                return false;
+            }
+
+
+            //if (BikeName[0].touppercase() != BikeName[0])
+            //{
+            //    alert("bikename cannot start with lower case");
+            //    return false;
+            //}
+
+
+            var format = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (format.test(BikeName)) {
+                alert("Brand name cannot Contain special character");
+                return false;
+            }
+
+            if (BikePrice < 25000) {
+                alert("price should be greater than 25000");
+                return false;
+            }
+            if (Milage < 15 || Milage > 45) {
+                alert("milage should be between 15 and 45");
+                return false;
+            }
+
+            if (BikeCC < 100 || BikeCC > 1000) {
+                alert("Bike CC should be between 100 and 1000");
+                return false;
+            }
+
+        }
+    </script>
+</body>
+
+
+
+
+
+</html>

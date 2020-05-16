@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "CustomerChoice";
+    //Layout = "~/Views/Shared/CustomerPartialView.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2 align:"center">CustomerChoice</h2>*@
+<br />
+<br />
+<html>
+<head>
+
+</head>
+<body>
+    <div calss="Container" id="display">
+        <div class="row" style="font-size:medium">
+            @foreach (var item in Model)
+            {
+                var base64 = Convert.ToBase64String(item.BikeImages);
+                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                <div class="col-sm-3">
+                    <div class="card-deck">
+                        <div class="card">
+                            <div class="thumbnail">
+
+                                <img src="@imgsrc" class="card-img-top" alt="@item.BikeName" title="@item.BikeName" height="200" width="250" />
+                            </div>
+
+                            <div class="card-body"style="color:white">
+                                <h4 class="card-title">BikeName:&nbsp;@item.BikeName</h4>
+                              
+                                <p class="card-text">DiscBrakes:&nbsp;@item.DiscBrakes</p>
+                                <p class="card-text">Milage:&nbsp;@item.Milage</p>
+                                <p class="card-text">BikeCC:&nbsp;@item.BikeCC</p>
+                                <p class="card-text">BikePrice:&nbsp;@item.BikePrice</p>
+                                @*@Html.ActionLink("DeleteBike", "DeleteBike", new { BikeId = @item.BikeId }, new { @class = "btn btn-primary btn-large" })
+                                    &nbsp;&nbsp;
+                                    @Html.ActionLink("UpdateBike", "UpdateBike", new { BikeId = item.BikeId }, new { @class = "btn btn-primary btn-large" })*@
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@item.BikeId">
+                                    View Bike
+                                </button>
+
+                                <div class="modal fade" id="@item.BikeId" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title" style="color:black" id="@item.BikeName">@item.BikeName</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="color:black">
+                                                <div class="thumbnail">
+
+                                                    <img src="@imgsrc" class="card-img-top" alt="@item.BikeName" title="@item.BikeName" height="300" width="300" />
+                                                </div>
+                                                <p>@item.BrandName</p>
+                                                <p>Disc Brakes:@item.DiscBrakes</p>
+                                                <p>Milage:@item.Milage</p>
+                                                <p>BikeCC:@item.BikeCC</p>
+                                                <p>BikePrice:@item.BikePrice</p>
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                @Html.ActionLink("PurchaseByCase", "FullPurchase", new { bikeId = @item.BikeId }, new { @class = "btn btn-primary" })
+
+                                                @Html.ActionLink("PurchaseByEMI", "PurchaseByEMI", new { bikeId = @item.BikeId }, new { @class = "btn btn-primary" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <center>@Html.ActionLink("Back to list", "CustomerIndex", "Customer")</center>
+</body>
+</html>
+

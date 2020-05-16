@@ -1,0 +1,55 @@
+﻿
+@{
+    // Layout = null;
+    ViewBag.Title = "PurchaseByEMI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PurchaseByEMI</title>
+</head>
+<body>
+
+    <div class="container" align="center">
+        <h2>EMI Options</h2>
+        <form class="form-group" action="/Customer/EMICalculate" method="post">
+            <div class="form-group">
+                <label class="contol-label col-sm-2" for="Months">No Of Months</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="months" placeholder="Enter Months for EMI" name="months" required="required" />
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info">Calculate EMI</button>
+                </div>
+            </div>
+        </form>
+        <div class="col-md-3" align="center">
+            @if (ViewBag.EMI != null)
+            {
+                <p>EMI per Month @ViewBag.EMI</p>
+                <form action="/Customer/PurchaseEMI">
+                    <button type="submit" class="btn btn-success">Buy with EMI</button>
+                </form>
+            }
+            @Html.ActionLink("No I want to cancel the payment", "Paymentcancel", new { @class = "btn btn-danger" })
+        </div>
+    </div>
+    <center>
+
+        @Html.ActionLink("Back to list", "CustomerChoice", "Customer")
+    </center>
+</body>
+</html>
